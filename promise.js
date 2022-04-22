@@ -24,14 +24,14 @@ getCovidData()
 })
 
 function getCountryHaveHighestTotalDeath(countries) {
-    return getCountryHaveHighestPeople(countries, 'TotalDeaths')
+    return getNumberOfPeopleRequired(countries, 'TotalDeaths')
 }
 
 function getCountryHaveHighestNewConfirmed(countries) {
-    return getCountryHaveHighestPeople(countries, 'NewConfirmed')
+    return getNumberOfPeopleRequired(countries, 'NewConfirmed')
 }
 
-function getCountryHaveHighestPeople(countries, option) {
+function getNumberOfPeopleRequired(countries, option) {
     const numbers = countries.map(country => {
         return country[option]
     })
