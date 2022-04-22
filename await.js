@@ -13,14 +13,14 @@ async function alertPending() {
     console.log("Đã lấy dữ liệu thành công, đang xuất thống kê:")
 }
 
-async function displayData(totalDeath, newDeath) {
+async function displayData(totalDeath, newConfirmed) {
     console.log('Đang lấy dữ liệu, xin vui lòng chờ...')
     await alertPending()
     const result = await getCovidData()
     console.log('Dữ liệu Covid hôm nay:')
     console.log(`Nhiễm mới: ${result.data.Global.NewConfirmed} - Số người chết mới: ${result.data.Global.NewDeaths} - Tổng số người chết: ${result.data.Global.TotalDeaths}`)
     console.log(`Quốc Gia có số lượng tổng cộng người chết nhiều nhất là: ${totalDeath(result.data.Countries)}`)
-    console.log(`Quốc Gia có số lượng người mắc mới trong ngày nhiều nhất là: ${newDeath(result.data.Countries)}`)
+    console.log(`Quốc Gia có số lượng người mắc mới trong ngày nhiều nhất là: ${newConfirmed(result.data.Countries)}`)
 }
 
 displayData(getCountryHaveHighestTotalDeath, getCountryHaveHighestNewConfirmed)
